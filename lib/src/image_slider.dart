@@ -36,14 +36,7 @@ class _ImageSliderState extends State<ImageSlider> {
               itemCount: urlImages.length,
               itemBuilder: (context, index, realIndex) {
                 final urlImage = urlImages[index];
-                return Container(
-                  child: Image.network(
-                    urlImage,
-                    fit: BoxFit.cover,
-                  ),
-                );
-
-                //buildImage(urlImage, index);
+                return buildImage(urlImage, index);
               },
               options: CarouselOptions(
                 height: 400,
@@ -55,27 +48,29 @@ class _ImageSliderState extends State<ImageSlider> {
               ),
             ),
             const SizedBox(height: 12),
-            AnimatedSmoothIndicator(
-              onDotClicked: animateToSlide,
-              effect: const ExpandingDotsEffect(
-                dotWidth: 15,
-                activeDotColor: Colors.blue,
-              ),
-              activeIndex: activeIndex,
-              count: urlImages.length,
-            ),
+            buildIndicator(),
           ],
         ),
       ),
     );
   }
 
-// Widget buildImage(String urlImage, int index) {
-//   Container(
-//     child: Image.network(
-//       urlImage,
-//       fit: BoxFit.cover,
-//     ),
-//   );
-// }
+  Widget buildImage(String urlImage, int index) {
+    return Container(
+      child: Image.network(
+        urlImage,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  Widget buildIndicator() => AnimatedSmoothIndicator(
+        onDotClicked: animateToSlide,
+        effect: const ExpandingDotsEffect(
+          dotWidth: 15,
+          activeDotColor: Colors.blue,
+        ),
+        activeIndex: activeIndex,
+        count: urlImages.length,
+      );
 }
