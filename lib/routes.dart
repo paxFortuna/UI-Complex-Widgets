@@ -3,6 +3,7 @@ import 'package:ui_complex_widget/src/choice_chip_selector.dart';
 import 'package:ui_complex_widget/src/pages/home_page.dart';
 
 import 'src/bottom_bar.dart';
+import 'src/image_slider.dart';
 
 class Routes extends StatelessWidget {
   const Routes({Key? key}) : super(key: key);
@@ -25,7 +26,12 @@ class Routes extends StatelessWidget {
               MaterialPageRoute(builder:(context) => ChoiceChipSelector()),
             );
           }, child: Text('Choice Chip Tip'),),
-          ElevatedButton(onPressed: (){}, child: Text(''),),
+          ElevatedButton(onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder:(context) => ImageSlider()),
+            );
+          }, child: Text('Image Slider'),),
           ElevatedButton(onPressed: (){}, child: Text(''),),
           ElevatedButton(onPressed: (){}, child: Text(''),),
           ElevatedButton(onPressed: (){}, child: Text(''),),
