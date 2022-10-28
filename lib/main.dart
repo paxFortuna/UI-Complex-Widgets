@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_complex_widget/routes.dart';
 import 'package:ui_complex_widget/src/bottom_bar.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BottomBar(),
+      home: Routes(),
     );
   }
 }
