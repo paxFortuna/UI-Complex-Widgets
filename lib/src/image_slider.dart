@@ -54,7 +54,16 @@ class _ImageSliderState extends State<ImageSlider> {
                     setState(() => activeIndex = index),
               ),
             ),
-
+            const SizedBox(height: 12),
+            AnimatedSmoothIndicator(
+              onDotClicked: animateToSlide,
+              effect: const ExpandingDotsEffect(
+                dotWidth: 15,
+                activeDotColor: Colors.blue,
+              ),
+              activeIndex: activeIndex,
+              count: urlImages.length,
+            ),
           ],
         ),
       ),
